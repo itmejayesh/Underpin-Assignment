@@ -1,101 +1,110 @@
+import React from "react";
 import Image from "next/image";
+import BgImage from "./Public/image.png";
+import Logo from "./Public/logo.png";
+import CrownBtn from "./Public/01.png";
+import TimeLine from "./Public/time.png";
+import PlusCircle from "./Public/PlusCircle.png";
+import SideBar from "./Public/03.png";
+import SidePoster from "./Public/poster.png";
+import Carousel from "@/components/carousel";
+import UserLogin from "@/components/UserLogin";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const Home = () => {
+	return (
+		<main className=" h-screen">
+			{/* bg image */}
+			<div
+				className="bg-cover bg-center bg-no-repeat w-full h-full absolute"
+				style={{ backgroundImage: `url(${BgImage.src})` }}
+			/>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+			<div className="relative z-10 h-full">
+				{/* navBar */}
+				<nav className="w-full h-1/6  container mx-auto">
+					<div className="flex items-center justify-between py-5">
+						<div className="md:flex gap-x-5 px-5 hidden">
+							<Image src={CrownBtn} width={75} height={500} alt="" />
+							<div className="self-center relative">
+								{/* Container for TimeLine and PlusCircle */}
+								<div className="relative">
+									{/* TimeLine Image */}
+									<Image
+										src={TimeLine}
+										width={175}
+										height={500}
+										alt="Timeline"
+										className="block"
+									/>
+
+									{/* PlusCircle Image (top-right of TimeLine) */}
+									<Image
+										src={PlusCircle}
+										width={30}
+										height={50}
+										alt="Plus Circle"
+										className="absolute top-0 right-0 transform translate-y-[25%] -translate-x-[8%]"
+									/>
+
+									{/* Text on top of TimeLine */}
+									<h1
+										className="absolute inset-0 flex justify-center items-center text-transparent bg-clip-text text-3xl z-10"
+										style={{
+											backgroundImage: `linear-gradient(to bottom left, #AE5D23 39%, #FFC87F 59%, #B1603C 68%)`,
+										}}>
+										0.00
+									</h1>
+								</div>
+							</div>
+						</div>
+						<div className="px-5">
+							<Image
+								src={Logo}
+								width={300}
+								height={500}
+								alt=""
+								className="max-w-[120px] md:max-w-[200px]"
+							/>
+						</div>
+						<div>
+							<UserLogin />
+						</div>
+					</div>
+				</nav>
+
+				{/* main body */}
+				<div className="container mx-auto">
+					<div className="flex mx-1 items-center">
+						<div className="p-5 hidden lg:block">
+							<Image
+								src={SideBar}
+								width={250}
+								height={500}
+								alt=""
+								className=" object-contain h-full"
+							/>
+						</div>
+						<div className="">
+							<Image
+								src={SidePoster}
+								width={350}
+								height={500}
+								alt=""
+								className="object-contain h-full max-w-[150px] md:max-w-[350px]"
+							/>
+						</div>
+						<div className="container mx-auto self-center space-y-28 px-2">
+							{/* Carousel Wrapper */}
+							<Carousel />
+							<div className="hidden lg:block">
+								<Carousel />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	);
+};
+
+export default Home;
